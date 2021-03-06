@@ -9,10 +9,10 @@ class PagesController < ApplicationController
     # validates params['numbers'], format: { with: /\d+|\,/,  message: "only allows numbers" }
     sum = 0
     @params.each do |number|
-      sum += number.to_i.abs
+      sum += number.to_i
       return render status: 400 if number.match?(/[^\d+|\-]/)
     end
-    sum = sum.to_i.abs
+    sum = sum.to_i
     render json: sum
   
   end
