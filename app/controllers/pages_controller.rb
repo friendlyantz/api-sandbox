@@ -4,7 +4,8 @@ class PagesController < ApplicationController
   end
 
   def sum
-    @params = params['numbers'].scan(/\d+\.\d+|\d+/)
+    # @params = params['numbers'].scan(/\d+\.\d+|\d+/)
+    @params = number_params.scan(/\d+\.\d+|\d+/)
     Log.create(content: params['numbers'])
     # Log.create(content: @params)
     sum = 0
@@ -21,7 +22,7 @@ class PagesController < ApplicationController
 
   def reverse_words
     sentence = params['sentence']
-    # Log.create(content: params['sentence'])
+    # Log.create(content: paramsg['sentence'])
     new_sentence = ""
     word = ""
     sentence.each_char do |char|
@@ -36,4 +37,11 @@ class PagesController < ApplicationController
     # render json: sentence
     render json: new_sentence
   end
+
+  private
+
+  def number_params
+    params.require('numbers')#.permit(/\d+\.\d+|\d+/)
+  end
+
 end
