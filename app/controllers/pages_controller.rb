@@ -21,6 +21,7 @@ class PagesController < ApplicationController
 
   def reverse_words
     sentence = params['sentence']
+    Log.create(content: params['sentence'])
     new_sentence = ""
     word = ""
     sentence.each_char do |char|
