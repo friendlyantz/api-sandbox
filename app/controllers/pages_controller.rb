@@ -1,9 +1,12 @@
 class PagesController < ApplicationController
+
   def hello
   end
 
   def sum
     @params = params['numbers'].scan(/\d+\.\d+|\d+/)
+    Log.create(content: params['numbers'])
+    # Log.create(content: @params)
     sum = 0
     array = []
     @params.each do |number|
