@@ -16,12 +16,10 @@ class PagesController < ApplicationController
     sum = sum.round(2)
     # render json: sum #.round(2) # Remove for initial test
     render json: sum
-# TODO LOGGER
-    
   end
 
   def reverse_words
-    sentence = params['sentence']
+    sentence = sentence_params
     # Log.create(content: paramsg['sentence'])
     new_sentence = ""
     word = ""
@@ -42,6 +40,11 @@ class PagesController < ApplicationController
 
   def number_params
     params.require('numbers')#.permit(/\d+\.\d+|\d+/)
+  end
+
+
+  def sentence_params
+    params.require('sentence')#.permit(/\d+\.\d+|\d+/)
   end
 
 end
