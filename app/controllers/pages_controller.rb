@@ -1,42 +1,19 @@
 class PagesController < ApplicationController
-
   def hello
   end
 
   def sum
-    Log.create(content: params['numbers'])
-    @params = number_params.split(",")
-    # validates params['numbers'], format: { with: /\d+|\,/,  message: "only allows numbers" }
-    sum = 0
-    @params.each do |number|
-      sum += number.to_i
-      return render status: 400 if number.match?(/[^\d+|\-]/)
-    end
-    sum = sum.to_i
-    render json: sum
-  
+    return render status: 400 if number_params.match?(/[^\d+\.\d+|\d+|\-|\,]/)
+    numbers_array = number_params.split(",").map(&:to_i)
+    result = numbers_array.sum
+
+    render json: result
   end
-
-  # def sum
-  #   # @params = params['numbers'].scan(/\d+\.\d+|\d+/)
-  #   @params = number_params.scan(/\d+\.\d+|\d+/)
-  #   Log.create(content: params['numbers'])
-  #   # Log.create(content: @params)
-  #   sum = 0
-  #   array = []
-  #   @params.each do |number|
-  #     sum += number.to_f
-  #   end
-  #   sum = sum.round(2)
-  #   # render json: sum #.round(2) # Remove for initial test
-  #   render json: sum
   
-  # end
-
   def reverse_words
-    sentence = params['sentence']
-    # sentence = sentence_params
-    # Log.create(content: paramsg['sentence'])
+    sentence = sentence_params
+
+    # sentence_array = sentence.split(/\b/)
     new_sentence = ""
     word = ""
     sentence.each_char do |char|
@@ -48,7 +25,7 @@ class PagesController < ApplicationController
       end 
     end
     new_sentence += word.reverse!
-    # render json: sentence
+
     render json: new_sentence
   end
 
@@ -60,7 +37,7 @@ class PagesController < ApplicationController
 
 
   def sentence_params
-    params.require('sentence')#.permit(/\d+\.\d+|\d+/)
+    params.require('sentence')
   end
 
 end
