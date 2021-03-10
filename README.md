@@ -1,24 +1,58 @@
-# README
+# API including TDD using Rspec
+build using Ruby on Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Commands to run
+`bundle install`
+`rails db:create`
+`rails db:migrate`
 
-Things you may want to cover:
+### Testing
+`bundle exec rspec spec/_<folder_you_want_to_test>_/<**filename.rb:31**>`_(31 ie line numer for specific test)_
 
-* Ruby version
+#### How it was created
+`rails new *app-nape* --api`
 
-* System dependencies
+# Tasks
+## GET /hello
 
-* Configuration
+This API is to test that your website is up and running. We will make a GET request to the path hello under the url you have specified.
 
-* Database creation
+For example if your web site is at http://8f166b0d6fd7.ngrok.io/ then the request will be made to http://8f166b0d6fd7.ngrok.io/hello.
 
-* Database initialization
+The request body will be empty.
 
-* How to run the test suite
+Your API should return a 204 (NoContent) response with an empty body.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Sum
+GET /sum?numbers=<command_seperated_numbers>
 
-* Deployment instructions
+This API should return the sum of the supplied integers.
 
-* ...
+The URL will contain a query (search) parameter numbers that is a comma separated list of integers to sum.
+
+The request body will be empty.
+
+Your API should return a 200 (OK) response and the sum should be in the body of the response.
+
+It should not be JSON formatted.
+
+## Reverse Words
+GET /reverse-words?sentence=<a_string>
+
+This API should reverse each of the words in the supplied string and return the result.
+
+The URL will contain a query (search) parameter sentence containing words and special characters.
+
+A word is defined as one or more english alphabet characters (a-z, A-Z) in a row. All other characters, should be kept in place.
+
+For example the sentence
+
+Hi, Octopus
+
+Would become
+
+iH, supotcO
+
+The request body will be empty.
+
+Your API should return a 200 (OK) response and the resultant string should be in the body of the response. It should not be JSON formatted or quoted.
