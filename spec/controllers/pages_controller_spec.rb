@@ -41,7 +41,7 @@ RSpec.describe PagesController, :type => :controller do
       expect(response).to have_http_status(200)
     end
 
-    it "return 400(ok) HTTP status with invalid params" do
+    it "return 400(bad request) HTTP status with invalid params" do
       get :sum, :params => invalid_numbers
       expect(response).to have_http_status(400)
     end
