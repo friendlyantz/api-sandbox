@@ -5,12 +5,17 @@ build using Ruby on Rails
 
   rails -v 6.0.3.5
 
+#### How it was created
+`rails new *app-nape* --api` --api flag for lighter setup(inheritance from API preset, not Base
+
 ## Commands to run
 `bundle install`
 
 `rails db:create`
 
 `rails db:migrate`
+
+`rails s` to launch local server and test using _Postman_
 
 ### Testing using RSpec
 
@@ -25,8 +30,6 @@ Note: `-f d` flags can be removed after `rspec` command above, if your system is
 ![image](https://user-images.githubusercontent.com/70934030/110709052-c12e5b00-824f-11eb-80f7-2762de429d57.png)
 
 
-#### How it was created
-`rails new *app-nape* --api` --api flag for lighter setup(inheritance from API preset, not Base
 
 # Tasks
 ## GET /hello
