@@ -12,7 +12,12 @@ build using Ruby on Rails
 
 `rails db:migrate`
 
-### Testing
+### Testing using RSpec
+
+#### all tests 
+`bundle exec rspec -f d spec`
+
+#### specific tests
 `bundle exec rspec -f d spec/_<folder_you_want_to_test>_/<**filename.rb:31**>`_(31 ie line numer for specific test)_
 
 Note: `-f d` flags can be removed after `rspec` command above, if your system is producing full documentation output formatting, which is not the case on my Linux.
@@ -21,7 +26,7 @@ Note: `-f d` flags can be removed after `rspec` command above, if your system is
 
 
 #### How it was created
-`rails new *app-nape* --api` for lighter setup 
+`rails new *app-nape* --api` --api flag for lighter setup(inheritance from API preset, not Base
 
 # Tasks
 ## GET /hello
