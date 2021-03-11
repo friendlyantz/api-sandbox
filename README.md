@@ -7,7 +7,9 @@ build using Ruby on Rails
 
 ## Commands to run
 `bundle install`
+
 `rails db:create`
+
 `rails db:migrate`
 
 ### Testing
