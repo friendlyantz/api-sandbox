@@ -1,6 +1,10 @@
 # API including TDD using Rspec
 build using Ruby on Rails
 
+  ruby -v 2.6.6
+
+  rails -v 6.0.3.5
+
 ## Commands to run
 `bundle install`
 `rails db:create`
